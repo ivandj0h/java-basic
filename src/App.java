@@ -62,9 +62,22 @@ public class App {
         // System.out.println(data2);
 
         // filter
-        List<ProfileEntity> data3 = profiles.stream()
+        // List<ProfileEntity> data3 = profiles.stream()
+        // .filter(p -> p.getSkills().contains("Java"))
+        // .collect(Collectors.toList());
+        // System.out.println(data3);
+
+        // findFirst
+        ProfileEntity data4 = profiles.stream()
                 .filter(p -> p.getSkills().contains("Java"))
-                .collect(Collectors.toList());
-        System.out.println(data3);
+                .map(p -> (new ProfileEntity(
+                        p.getFirstName(),
+                        p.getLastName(),
+                        p.getEmail(),
+                        p.getSkills())))
+                .findFirst()
+                .orElse(null);
+
+        System.out.println(data4);
     }
 }
