@@ -52,13 +52,19 @@ public class App {
         // System.out.println(data);
 
         // Set
-        Set<ProfileEntity> data2 = profiles.stream()
-                .map(p -> (new ProfileEntity(
-                        p.getFirstName(),
-                        p.getLastName(),
-                        p.getEmail(),
-                        p.getSkills())))
-                .collect(Collectors.toSet());
-        System.out.println(data2);
+        // Set<ProfileEntity> data2 = profiles.stream()
+        // .map(p -> (new ProfileEntity(
+        // p.getFirstName(),
+        // p.getLastName(),
+        // p.getEmail(),
+        // p.getSkills())))
+        // .collect(Collectors.toSet());
+        // System.out.println(data2);
+
+        // filter
+        List<ProfileEntity> data3 = profiles.stream()
+                .filter(p -> p.getSkills().contains("Java"))
+                .collect(Collectors.toList());
+        System.out.println(data3);
     }
 }
